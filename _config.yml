@@ -12,7 +12,7 @@ description: A Programming Blog
 avatar: https://raw.githubusercontent.com/barryclark/jekyll-now/master/images/jekyll-logo.png
 
 # Theme
-remote_theme: aterenin/minima-reboot
+theme: minima
 
 #
 # Flags below are optional
