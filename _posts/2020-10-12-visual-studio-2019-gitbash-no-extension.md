@@ -5,7 +5,9 @@ title: Adding git-bash to Visual Studio 2019 — No Extension Required!
 
 If you’re like me preferring to directly work with the git-bash command-line tool instead of using the Teams Explorer window in the Visual Studio 2019 you probably want to have the git-bash tool be accessible in a second!
 
-1. Make sure you have Git installed.
+![Visual Studio 2019 with Git Bash option](../images/visual-studio2019-with-gitbash-option.png)
+
+1. Make sure you [have Git installed](https://git-scm.com/download/win).
 2. Open Visual Studio 2019 and go to Tools > External Tools…
 3. Click on the Add button and fill the fields like this:
     * Title: Git Bash
