@@ -16,22 +16,23 @@ This instruction works for both Windows and Linux machines.
 3. Do you have `curl` installed? It cames with most linux distros but on Windows download and install it from [curl website](https://curl.se/windows/).
 
 4. If you're on Windows, make sure you have GitBash installed. Then create a `copy-token.sh` file like this:
-```sh
-#!/bin/sh
-echo 'Fetching a new token. Please wait...'
 
-EMAIL=$1
-PSWD=$2
+    ```sh
+    #!/bin/sh
+    echo 'Fetching a new token. Please wait...'
 
-REQUEST_BODY='{
-    "email":"'"$EMAIL"'",
-    "password": "'"$PSWD"'"
-}'
+    EMAIL=$1
+    PSWD=$2
 
-curl -s --location --request POST 'http://<your-identity-server-url>/api/v1/account/token' --header 'Content-Type: application/json' --data-raw "$REQUEST_BODY" | jq -j .result.access_token | awk '{print "Bearer "$1}' | clipboard
+    REQUEST_BODY='{
+        "email":"'"$EMAIL"'",
+        "password": "'"$PSWD"'"
+    }'
 
-echo 'A new token is copied to the Clipboard!'
-```
+    curl -s --location --request POST 'http://<your-identity-server-url>/api/v1/account/token' --header 'Content-Type: application/json' --data-raw "$REQUEST_BODY" | jq -j .result.access_token | awk '{print "Bearer "$1}' | clipboard
+
+    echo 'A new token is copied to the Clipboard!'
+    ```
 
     And make sure you replace `<your-identity-server-url>` with your identity server URL.
 
