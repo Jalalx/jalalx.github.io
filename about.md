@@ -9,4 +9,4 @@ I am a detail-oriented, dedicated, and results-driven software engineer with a p
 Nowadays, as a software engineer, I build cloud friendly services at [Alibaba Travels Co.](https://alibaba.ir)
 
 ### Contact me
-I am available on twitter, just [@CallMeJalal](https://twitter.com/callmejalal)
+Email me at [jalal.amini.robati@gmail.com](jalal.amini.robati@gmail.com)
