@@ -23,6 +23,7 @@ In each step, if the current element of the array is greater than the `leftMax` 
 This will cost O(n) time and O(n) space complexity.
 
 Let’s consider:
+
 ```
 A = [1, 4, 3, 5]
 ```
@@ -38,6 +39,7 @@ Same as above, this also will cost O(n) time and O(n) space complexity.
 In the example above, when we move from right to left in array `A`, we keep track of the smallest value until now. In the beginning, `rightMin` is 5 and rights is [5]. Loop starts and the next member, which is 3 is smaller than the `rightMin` so `rightMin` becomes 3 and also we add 3 to rights list. The next member 4 is smaller than `rightMin` and we ignore it. The last member is 1 and is smaller than `rightMin` value, so `rightMin` becomes 1 and we add it to rights which becomes [5, 3, 1].
 
 Well, what does lefts and rights have in common?
+
 ```
 [1, 4, 5] ∩ [5, 3, 1] = [1, 5]
 ```
@@ -50,6 +52,7 @@ Using a Hash Table data structure can help with this because they have O(1) acce
 At first, we add all numbers of the first array to the hash table. Then, in a loop in the second array, check if the current number exists in the hash table that means it exists on both arrays.
 
 Here is the implementation in C#:
+
 ```csharp
 /*
 mkdir OrderedNumbers
