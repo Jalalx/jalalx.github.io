@@ -9,7 +9,7 @@ description: "Bash scripting comes handy when you have some repetitive routines,
 
 Bash scripting comes handy when you have some repetitive routines, like obtainign a token when you want to test an `Authorization` header required API!
 
-### WARNING: Copying sensitive data like production environemnt access tokens to clipboard using automated tools is a risky thing. Consider checking the clipboard tool source code to make sure it does only what it meant to do. Also, remember to use these pranctices for development environment only.
+### WARNING: Copying sensitive data like production environemnt access tokens to clipboard using automated tools is a risky thing. Consider checking the clipboard tool source code to make sure it does only what it meant to do. Also, remember to use this tool in the development environment only.
 
 
 In the [previous post](/be-productive-using-bash-scripts-on-windows-part-1/) we had a script that gets username and password and automatically obtains an `access_token` and writes it to the system's clipboard. But how it actually works?

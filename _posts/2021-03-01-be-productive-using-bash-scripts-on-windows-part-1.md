@@ -11,11 +11,10 @@ Bash scripting comes handy when you have some repetitive routines, like obtainig
 In this blog post, we're going to write some scripts to automate the process of getting a new bearer token from an Identity Server.
 
 
-### WARNING: Copying sensitive data like production environemnt access tokens to clipboard using automated tools is a risky thing. Consider checking the clipboard tool source code to make sure it does only what it meant to do. Also, remember to use these pranctices for development environment only.
+### WARNING: Copying sensitive data like production environemnt access tokens to clipboard using automated tools is a risky thing. Consider checking the clipboard tool source code to make sure it does only what it meant to do. Also, remember to use this tool in the development environment only.
 
 
-
-This instruction works for both Windows and Linux machines.
+This instruction works for both Windows and Linux machines. I usually code on a Windows 10 powered machine and I found [Git Bash](https://git-scm.com/downloads) handy. I also installed [Windows Terminal](https://github.com/microsoft/terminal) which makes working with multiple terminal windows easy.
 
 1. First, make sure you have [NodeJs](https://nodejs.org/en/download/) installed then run `npm install clipboard-cli`
 
