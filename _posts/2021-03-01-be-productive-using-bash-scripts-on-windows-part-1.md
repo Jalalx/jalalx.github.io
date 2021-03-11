@@ -8,9 +8,12 @@ description: "Bash scripting comes handy when you have some repetitive routines,
 
 Bash scripting comes handy when you have some repetitive routines, like obtainign a token when you want to test an `Authorization` header required API!
 
-## WARNING: Copying sensitive data like production environemnt access tokens to clipboard using automated tools is a risky thing. Consider checking the clipboard tool source code to make sure it does only what it meant to do. Also, remember to use these pranctices for development environment only.
-
 In this blog post, we're going to write some scripts to automate the process of getting a new bearer token from an Identity Server.
+
+
+### WARNING: Copying sensitive data like production environemnt access tokens to clipboard using automated tools is a risky thing. Consider checking the clipboard tool source code to make sure it does only what it meant to do. Also, remember to use these pranctices for development environment only.
+
+
 
 This instruction works for both Windows and Linux machines.
 
