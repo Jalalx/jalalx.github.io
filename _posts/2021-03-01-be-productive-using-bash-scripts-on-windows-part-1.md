@@ -16,7 +16,7 @@ In this blog post, we're going to write some scripts to automate the process of 
 
 This instruction works for both Windows and Linux machines. I usually code on a Windows 10 powered machine and I found [Git Bash](https://git-scm.com/downloads) handy. I also installed [Windows Terminal](https://github.com/microsoft/terminal) which makes working with multiple terminal windows easy.
 
-1. First, make sure you have [NodeJs](https://nodejs.org/en/download/) installed then run `npm install clipboard-cli`
+1. First, make sure you have [NodeJs](https://nodejs.org/en/download/) installed then run `npm install clipboard-cli`. This will install the `clipboard` commandline tool.
 
 2. Then install `jq`. You need it for parsing JSON responses. You can install it using [WinGet](https://github.com/microsoft/winget-cli) by running `winget install jq` or if you're on debian based linux, just run `sudo apt-get install jq`
 
@@ -45,4 +45,4 @@ This instruction works for both Windows and Linux machines. I usually code on a 
 
 5. Now you can run the script. Just call: `./copy-token.sh <myusername> <mypassword>` and have the token in your clipboard!
 
-I'll describe each step of the bash code later...
+This was't a long blog post, but surely a time consuming instruction for you. So I'll describe each step of the bash code [in the part 2](/be-productive-using-bash-scripts-on-windows-part-2/).
