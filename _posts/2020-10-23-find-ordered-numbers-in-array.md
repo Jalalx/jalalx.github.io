@@ -31,17 +31,17 @@ Let’s consider:
 A = [1, 4, 3, 5]
 ```
 
-In this example, when we move from left to right in array `A`, we keep track of the biggest value until now. Initially, `leftMax` is 1 and lefts is [1]. Loop starts and the second member, which is 4 is greater than the `leftMax` so `leftMax` becomes 4 and also we add 4 to lefts list. The next member 3 is smaller than `leftMax` and we ignore it. The last member is 5 and is greater than `leftMax` value, so `leftMax` becomes 5 and we add it to lefts which is [1, 4, 5] by now.
+In this example, when we move from left to right in array `A`, we keep track of the biggest value until now. Initially, `leftMax` is 1 and lefts is [1]. The loop starts and the second member, which is 4 is greater than the `leftMax` so `leftMax` becomes 4 and also we add 4 to lefts list. The next member 3 is smaller than `leftMax` and we ignore it. The last member is 5 and is greater than `leftMax` value, so `leftMax` becomes 5 and we add it to lefts which is [1, 4, 5] by now.
 
 Second, we need to do exactly the opposite of what we did before: find all numbers that are smaller than all numbers on their right side! So the algorithm would be:
-Again, consider a temporary variable `rightMin` and initialize it with the last member of the array. Also, consider a temporary list rights that holds all numbers that are smaller than their right side members. Since the last member of the array is smaller than all numbers after itself (which is none!) add it to the rights. Start traversing from the second to last member to left (as you know, we already set the last member in the rights!).
+Again, consider a temporary variable `rightMin` and initialize it with the last member of the array. Also, consider a temporary list of rights that holds all numbers that are smaller than their right side members. Since the last member of the array is smaller than all numbers after itself (which is none!) add it to the rights. Start traversing from the second to last member to left (as you know, we already set the last member in the rights!).
 
-In each step, if the current element of the array is smaller than the `rightMin` value, then update `rightMax` and add the current member to rights list.
+In each step, if the current element of the array is smaller than the `rightMin` value, then update `rightMax` and add the current member to the rights list.
 Same as above, this also will cost O(n) time and O(n) space complexity.
 
 In the example above, when we move from right to left in array `A`, we keep track of the smallest value until now. In the beginning, `rightMin` is 5 and rights is [5]. Loop starts and the next member, which is 3 is smaller than the `rightMin` so `rightMin` becomes 3 and also we add 3 to rights list. The next member 4 is smaller than `rightMin` and we ignore it. The last member is 1 and is smaller than `rightMin` value, so `rightMin` becomes 1 and we add it to rights which becomes [5, 3, 1].
 
-Well, what does lefts and rights have in common?
+Well, what do lefts and rights have in common?
 
 ```
 [1, 4, 5] ∩ [5, 3, 1] = [1, 5]
