@@ -14,7 +14,7 @@ In this blog post, we're going to write some scripts to automate the process of 
 ### WARNING: Copying sensitive data like production environemnt access tokens to clipboard using automated tools is a risky thing. Consider checking the clipboard tool source code to make sure it does only what it meant to do. Also, remember to use this tool in the development environment only.
 
 
-This instruction works for both Windows and Linux machines. I usually code on a Windows 10 powered machine and I found [Git Bash](https://git-scm.com/downloads) handy. I also installed [Windows Terminal](https://github.com/microsoft/terminal) which makes working with multiple terminal windows easy.
+This instruction works for both Windows and Linux machines. I usually code on a Windows 10 powered machine and I found [Git-Bash](https://git-scm.com/downloads) very handy. I also installed [Windows Terminal](https://github.com/microsoft/terminal) which makes working with multiple terminal windows easy.
 
 1. First, make sure you have [NodeJs](https://nodejs.org/en/download/) installed then run `npm install clipboard-cli`. This will install the `clipboard` commandline tool.
 
@@ -22,7 +22,7 @@ This instruction works for both Windows and Linux machines. I usually code on a 
 
 3. Do you have `curl` installed? It cames with most linux distros but on Windows download and install it from [curl website](https://curl.se/windows/).
 
-4. If you're on Windows, make sure you have GitBash installed. Then create a `copy-token.sh` file like this:
+4. If you're on Windows, make sure you have Git-Bash installed. Then create a `copy-token.sh` file like this:
 
     ```sh
     #!/bin/sh
@@ -45,4 +45,6 @@ This instruction works for both Windows and Linux machines. I usually code on a 
 
 5. Now you can run the script. Just call: `./copy-token.sh <myusername> <mypassword>` and have the token in your clipboard!
 
-This was't a long blog post, but surely a time consuming instruction for you. So I'll describe each step of the bash code [in the part 2](/be-productive-using-bash-scripts-on-windows-part-2/).
+I just wanted to show an example of how bash scripting allows gluing tools together and automating boring tasks.
+
+This wasn't a long blog post, but surely a time consuming instruction for you. So I'll describe each step of the bash code [in the part 2](/be-productive-using-bash-scripts-on-windows-part-2/).
