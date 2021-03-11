@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Be productive using bash scripts - On Windows!
+title: Be productive using bash scripts on Windows! - Part I
 ---
 
 Bash scripting comes handy when you have some repetitive routines, like obtainign a token when you want to test an `Authorization` header required API!
