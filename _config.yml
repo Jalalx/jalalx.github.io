@@ -2,7 +2,7 @@
 name: "Jalal's Blog"
 title: "Jalal's Blog"
 description: "A Programming Blog"
-logo: ''
+logo: 'assets/images/jalalamini.jpg'
 favicon: 'favicon.ico'
 baseurl: ""
 google_analytics: 'UA-191544868-1'

@@ -1,9 +1,7 @@
 ---
 layout: post
 title: Find ordered numbers in an array — Programming Problem
-author: jalal
 categories: [ programming problem ]
-image: ""
 description: "The Problem: Write a function that takes an array of numbers and returns the count of ordered numbers. By the way, all numbers are unique."
 ---
 
