@@ -185,6 +185,4 @@ namespace OrderedNumbers
 }
 ```
 
-Please let me know what you think. Can we do better in terms of time and space complexity?
-
-This post is copied from my old blog on medium: https://jalalamini.medium.com/find-ordered-numbers-in-an-array-programming-problem-711c3a01594c
+Have a great day!
