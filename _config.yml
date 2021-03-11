@@ -4,7 +4,7 @@ title: "Jalal's Blog"
 description: "A Programming Blog"
 logo: 'assets/images/jalalamini.jpg'
 favicon: 'favicon.ico'
-baseurl: ""
+baseurl: "/"
 google_analytics: 'UA-191544868-1'
 disqus: ""
 mailchimp-list: ""
