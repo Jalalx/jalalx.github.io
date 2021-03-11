@@ -4,7 +4,7 @@ title: About
 permalink: /about/
 ---
 
-I am a detail-oriented, dedicated, and results-driven software engineer with a passion for learning and creating high-quality software.
+Hello there! My name is Jalal Amini Robati. I am a detail-oriented, dedicated, and results-driven software engineer with a passion for learning and creating high-quality software.
 
 Nowadays, as a software engineer, I build cloud friendly services at [Alibaba Travels Co.](https://alibaba.ir)
 
