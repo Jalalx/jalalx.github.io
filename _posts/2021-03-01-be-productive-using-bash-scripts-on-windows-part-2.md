@@ -31,12 +31,12 @@ curl -s --location --request POST 'http://<your-identity-server-url>/api/v1/acco
 echo 'A new token is copied to the Clipboard!'
 ```
 
-Let's start with the first line. The `#!/bin/sh` is a symbolic link to `sh` (or `bash` on debian linux distributions) and specifies that this file is a shell script. You can also use `#!/bin/bash`. There are some small difference and you can read more about it here: [What is the difference between #!/bin/sh and #!/bin/bash?
+Let's start with the first line. The `#!/bin/sh` is a symbolic link to `sh` (or `bash` on debian linux distributions) and specifies that this file is a shell script. You can also use `#!/bin/bash`. There are some small difference and you can read more about it here: [What is the differences between #!/bin/sh and #!/bin/bash?
 ](https://askubuntu.com/questions/141928/)
 
 The second line simply prints the message using `echo` command.
 
-In the lines 4 and 5, it defines two variables and initial them with two parameters we pass through as `$1` and `$2`. So when We run `./some-script.sh foo bar` the `$1` is `foo` and the `$2` is `bar`. Easy, right?
+In the lines 4 and 5, it defines two variables and initial them with two parameters we pass through as `$1` and `$2`. So when we run `./some-script.sh foo bar` the `$1` is `foo` and the `$2` is `bar`. Easy, right?
 
 Using variables in the previous step, in the line 7, it creates a new variable `REQUEST_BODY` which contains a JSON string containing the passed email and password. But notice to the `"'"`. It's because we want to make JSON surround passed variables in double-quotations.
 
