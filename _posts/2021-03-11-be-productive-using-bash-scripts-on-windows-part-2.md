@@ -3,16 +3,16 @@ layout: post
 title: Be productive using bash scripts on Windows! - Part 2
 author: jalal
 categories: [ bash, windows ]
-description: "Bash scripting comes handy when you have some repetitive routines, like obtainign a token when you want to test an `Authorization` header required API! In this blog post, I'm going to explain in details how the script works."
+description: "Bash scripting comes in handy when you have some repetitive routines, like obtaining a token when you want to test an `Authorization` header required API! In this blog post, I'm going to explain in detail how the script works."
 ---
 
 
-Bash scripting comes handy when you have some repetitive routines, like obtainign a token when you want to test an `Authorization` header required API!
+Bash scripting comes in handy when you have some repetitive routines, like obtaining a token when you want to test an `Authorization` header required API!
 
-### WARNING: Copying sensitive data like production environemnt access tokens to clipboard using automated tools is a risky thing. Consider checking the clipboard tool source code to make sure it does only what it meant to do. Also, remember to use this tool in the development environment only.
+### WARNING: Copying sensitive data like production environment access tokens to the clipboard using automated tools is a risky thing. Consider checking the clipboard tool source code to make sure it does what it is meant to do. Also, remember to use this tool in the development environment only.
 
 
-In the [previous post](/be-productive-using-bash-scripts-on-windows-part-1/) we had a script that gets username and password and automatically obtains an `access_token` and writes it to the system's clipboard. But how it actually works?
+In the [previous post](/be-productive-using-bash-scripts-on-windows-part-1/) we had a script that gets username and password and automatically obtains an `access_token` and writes it to the system's clipboard. But how it works?
 
 ```sh
 #!/bin/sh
@@ -31,23 +31,23 @@ curl -s --location --request POST 'http://<your-identity-server-url>/api/v1/acco
 echo 'A new token is copied to the Clipboard!'
 ```
 
-Let's start with the first line. The `#!/bin/sh` is a symbolic link to `sh` (or `bash` on debian linux distributions) and specifies that this file is a shell script. You can also use `#!/bin/bash`. There are some small differences and you can read more about it here: [What is the differences between #!/bin/sh and #!/bin/bash?
+Let's start with the first line. The `#!/bin/sh` is a symbolic link to `sh` (or `bash` on Debian linux distributions) and specifies that this file is a shell script. You can also use `#!/bin/bash`. There are some small differences and you can read more about it here: [What is the differences between #!/bin/sh and #!/bin/bash?
 ](https://askubuntu.com/questions/141928/)
 
 The second line simply prints the message using `echo` command.
 
-In the lines 4 and 5, it defines two variables and initialize them with two parameters we pass through as `$1` and `$2`. So when we run `./some-script.sh foo bar` the `$1` is `foo` and the `$2` is `bar`. Easy, right?
+In lines 4 and 5, it defines two variables and initializes them with two parameters we pass through as `$1` and `$2`. So when we run `./some-script.sh foo bar` the `$1` is `foo` and the `$2` is `bar`. Easy, right?
 
-Using variables in the previous step, in the line 7, it creates a new variable `REQUEST_BODY` which contains a JSON string containing the passed email and password. But notice to the `"'"`. It's because we want to make JSON surround passed variables in double-quotations.
+Using variables in the previous step, in line 7, it creates a new variable `REQUEST_BODY` which contains a JSON string containing the passed email and password. But notice to the `"'"`. It's because we want to make JSON surround passed variables in double-quotations.
 
-And finally, the actual thing happens at line 12. `curl` is a famous cross-platform tool to make http calls using command line. It actually does a lot more but in here, we simply want to make a `HTTP POST` request. the `-s` makes a silet request. The `--location` makes it follow the HTTP 3XX redirects but it won't send the credentials to the redirected location for security reasons. You can read moe about it in the [`--location` man page](https://curl.se/docs/manpage.html#-L). `--request POST` makes a HTTP `POST` request to the given url and `--header 'Content-Type: application/json'` sets the `Content-Type` header value. And finally the `--data-raw` sends the specified data as a request body.
+And finally, the actual thing happens at line 12. `curl` is a famous cross-platform tool to make HTTP calls using the command line. It actually does a lot more, but here, we simply want to make an `HTTP POST` request. The `-s` makes a silent request. The `--location` makes it follow the HTTP 3XX redirects but it won't send the credentials to the redirected location for security reasons. You can read more about it on the [`--location` man page](https://curl.se/docs/manpage.html#-L). `--request POST` makes a HTTP `POST` request to the given URL and `--header 'Content-Type: application/json'` sets the `Content-Type` header value. And finally, the `--data-raw` sends the specified data as a request body.
 
-You can call the first part of the command to see the output. Remeber to replace the `<...>` placeholders with actual values:
+You can call the first part of the command to see the output. Remember to replace the `<...>` placeholders with actual values:
 ```sh
 curl -s --location --request POST 'http://<your-identity-server-url>/api/v1/account/token' --header 'Content-Type: application/json' --data-raw '{"email":"<username>","password": "<password>"}" 
 ```
 
-Lets say the output will be something like this:
+Let's say the output will be something like this:
 ```json
 {
     "result": {

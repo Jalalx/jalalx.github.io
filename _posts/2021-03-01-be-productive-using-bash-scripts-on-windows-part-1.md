@@ -3,24 +3,24 @@ layout: post
 title: Be productive using bash scripts on Windows! - Part I
 author: jalal
 categories: [ bash, windows ]
-description: "Bash scripting comes handy when you have some repetitive routines, like obtainign a token when you want to test an `Authorization` header required API! In this blog post, we're going to write some scripts to automate the process of getting a new bearer token from an Identity Server."
+description: "Bash scripting comes in handy when you have some repetitive routines, like obtaining a token when you want to test an `Authorization` header required API! In this blog post, we're going to write some scripts to automate the process of getting a new bearer token from an Identity Server."
 ---
 
-Bash scripting comes handy when you have some repetitive routines, like obtainign a token when you want to test an `Authorization` header required API!
+Bash scripting comes in handy when you have some repetitive routines, like obtaining a token when you want to test an `Authorization` header required API!
 
 In this blog post, we're going to write some scripts to automate the process of getting a new bearer token from an Identity Server.
 
 
-### WARNING: Copying sensitive data like production environemnt access tokens to clipboard using automated tools is a risky thing. Consider checking the clipboard tool source code to make sure it does only what it meant to do. Also, remember to use this tool in the development environment only.
+### WARNING: Copying sensitive data like production environment access tokens to the clipboard using automated tools is a risky thing. Consider checking the clipboard tool source code to make sure it does what it is meant to do. Also, remember to use this tool in the development environment only.
 
 
-This instruction works for both Windows and Linux machines. I usually code on a Windows 10 powered machine and I found [Git-Bash](https://git-scm.com/downloads) very handy. I also installed [Windows Terminal](https://github.com/microsoft/terminal) which makes working with multiple terminal windows easy.
+This instruction works for both Windows and Linux machines. I usually code on a Windows 10 powered machine, and I found [Git-Bash](https://git-scm.com/downloads) very handy. I also installed [Windows Terminal](https://github.com/microsoft/terminal) which makes working with multiple terminal windows easy.
 
-1. First, make sure you have [NodeJs](https://nodejs.org/en/download/) installed then run `npm install clipboard-cli`. This will install the `clipboard` commandline tool.
+1. First, make sure you have [NodeJs](https://nodejs.org/en/download/) installed, then run `npm install clipboard-cli`. This will install the `clipboard` command line tool.
 
-2. Then install `jq`. You need it for parsing JSON responses. You can install it using [WinGet](https://github.com/microsoft/winget-cli) by running `winget install jq` or if you're on debian based linux, just run `sudo apt-get install jq`
+2. Then install `jq`. You will need it for parsing JSON responses. You can install it using [WinGet](https://github.com/microsoft/winget-cli) by running `winget install jq` or if you're on Debian based Linux, just run `sudo apt-get install jq`
 
-3. Do you have `curl` installed? It cames with most linux distros but on Windows download and install it from [curl website](https://curl.se/windows/).
+3. Do you have `curl` installed? It comes with most Linux distros but on Windows download and install it from [curl website](https://curl.se/windows/).
 
 4. If you're on Windows, make sure you have Git-Bash installed. Then create a `copy-token.sh` file like this:
 
@@ -47,4 +47,4 @@ This instruction works for both Windows and Linux machines. I usually code on a 
 
 I just wanted to show an example of how bash scripting allows gluing tools together and automating boring tasks.
 
-This wasn't a long blog post, but surely a time consuming instruction for you. So I'll describe each step of the bash code [in the part 2](/be-productive-using-bash-scripts-on-windows-part-2/).
+This wasn't a long blog post, but surely a time-consuming instruction for you. So I'll describe each step of the bash code [in the part 2](/be-productive-using-bash-scripts-on-windows-part-2/).
