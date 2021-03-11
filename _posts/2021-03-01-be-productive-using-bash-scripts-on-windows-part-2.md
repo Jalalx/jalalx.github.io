@@ -42,7 +42,7 @@ Using variables in the previous step, in the line 7, it creates a new variable `
 
 And finally, the actual thing happens at line 12. `curl` is a famous cross-platform tool to make http calls using command line. It actually does alot more but in here, We simply want to make a `HTTP POST` request. the `-s` makes a silet request. The `--location` makes it follow the HTTP 3XX redirects but it won't send the credentials to the redirected location for security reasons. You can read moe about it in the [`--location` man page](https://curl.se/docs/manpage.html#-L). `--request POST` makes a HTTP `POST` request to the given url and `--header 'Content-Type: application/json'` sets the `Content-Type` header value. And finally the `--data-raw` sends the specified data as a request body.
 
-You can call the first part of the command to see the output. Remeber to replace the `<...>` placeholders with actuall values:
+You can call the first part of the command to see the output. Remeber to replace the `<...>` placeholders with actual values:
 ```sh
 curl -s --location --request POST 'http://<your-identity-server-url>/api/v1/account/token' --header 'Content-Type: application/json' --data-raw '{"email":"<username>","password": "<password>"}" 
 ```
@@ -57,7 +57,7 @@ Lets say the output will be something like this:
 }
 ```
 
-But all we want is the `access_token` value. So we use `jq` tool to get it! `jq` can provide filtering on JSON data. It gets data from standard input and writes the filtered result into standard output. So piping `jq  -j .result.access_token` to the previous command will filter the `curl` JSON response to just the `access_token` value. the `-j` option (or `--join-output`) in the `jq` command will not append a new line to the `jq` result.
+But all we want is the `access_token` value. So we use [the `jq` tool](https://stedolan.github.io/jq/manual) to get it! `jq` can provide filtering on JSON data. It gets data from standard input and writes the filtered result into standard output. So piping `jq  -j .result.access_token` to the previous command will filter the `curl` JSON response to just the `access_token` value. the `-j` option (or `--join-output`) in the `jq` command will not append a new line to the `jq` result.
 
 And now `awk`. It's actually a scripting language mostly used for pattern scanning and processing. Piping the `access_token` value to `awk '{print "Bearer "$1}'` will result in an output like `Bearer <generated token>`. The `print` command writes the specified string literal to the standard output. The `"Bearer "` is a constant literal concatinated to to the `$1` which is the string value obtained from execution of the previous `jq` command.
 
