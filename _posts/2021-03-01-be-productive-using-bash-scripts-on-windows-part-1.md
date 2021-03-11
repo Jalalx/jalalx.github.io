@@ -3,7 +3,6 @@ layout: post
 title: Be productive using bash scripts on Windows! - Part I
 author: jalal
 categories: [ bash, windows ]
-tags: [bash, windows]
 image: ""
 description: "Bash scripting comes handy when you have some repetitive routines, like obtainign a token when you want to test an `Authorization` header required API! In this blog post, we're going to write some scripts to automate the process of getting a new bearer token from an Identity Server."
 ---

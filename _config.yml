@@ -2,7 +2,7 @@
 name: "Jalal's Blog"
 title: "Jalal's Blog"
 description: "A Programming Blog"
-logo: 'assets/images/jalalamini.ir'
+logo: ''
 favicon: 'favicon.ico'
 baseurl: ""
 google_analytics: 'UA-191544868-1'
@@ -16,9 +16,9 @@ authors:
   jalal:
     name: Jalal
     display_name: Jalal
-    gravatar: ""
+    avatar: 'assets/images/jalalamini.jpg'
     email: jalal.amini.robati@gmail.com
-    description: "My name is Jalal Amini Robati. I am a detail-oriented, dedicated, and results-driven software engineer with a passion for learning and creating high-quality software. Nowadays, as a software engineer, I build cloud friendly services at [Alibaba Travels Co.](https://alibaba.ir)"
+    description: "My name is Jalal Amini Robati. I am a detail-oriented, dedicated, and results-driven software engineer with a passion for learning and creating high-quality software."
 
 # Plugins
 plugins:

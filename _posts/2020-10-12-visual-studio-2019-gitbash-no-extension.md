@@ -3,7 +3,6 @@ layout: post
 title: Adding git-bash to Visual Studio 2019 — No Extension Required!
 author: jalal
 categories: [ git, visual studio 2019 ]
-tags: [git,visual studio 2019]
 image: ""
 description: "If you’re like me preferring to directly work with the git-bash command-line tool instead of using the Teams Explorer window in the Visual Studio 2019 you probably want to have the git-bash tool be accessible in a second!"
 ---
