@@ -73,7 +73,7 @@ server {
     }
 }
 ```
-Thats it! This file configures Nginx to redirect any incoming request to http://app:4000. Now back to the `nginx` folder and create a `Dockerfile` for it:
+Thats it! This file configures Nginx to redirect any incoming request to http://app:3500. Now back to the `nginx` folder and create a `Dockerfile` for it:
 ```docker
 FROM nginx:1.19.9
 
@@ -130,7 +130,7 @@ app_1    | info: Microsoft.Hosting.Lifetime[0]
 app_1    |       Content root path: /app
 ```
 
-You can directly open the application at [http://localhost:3800](http://localhost:3800){:target="_blank"}. By doing so, you're directly interacting with the Kestrel, default web server provided by ASP.NET Core. If you open [http://localhost:3000](http://localhost:3000){:target="_blank"} you will see the same application but your request went through the Nginx and re-routed to the Kestrel. Here Nginx acts as a reverse proxy web server.
+You can directly open the application at [http://localhost:3800](http://localhost:3800){:target="_blank"}. By doing so, you're directly interacting with the Kestrel, the default web server provided by ASP.NET Core. If you open [http://localhost:3000](http://localhost:3000){:target="_blank"} you will see the same application but your request went through the Nginx and re-routed to the Kestrel. Here Nginx acts as a reverse proxy web server.
 
 The following diagram shows the big picture:
 ![Reverse Proxy Diagram](../images/simple-reverse-proxy-web-server-docker-local.jpg)
