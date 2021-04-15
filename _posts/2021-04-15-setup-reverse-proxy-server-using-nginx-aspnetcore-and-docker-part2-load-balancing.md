@@ -71,7 +71,7 @@ server {
 }
 ```
 
-These changes configure Nginx to re-route every incoming request into one of the specified servers. You can prioritize some servers using the weight keyword followed by a number. 
+These changes configure Nginx to re-route every incoming request into one of the specified servers.
 
 In order to be able to see the number of incoming requests to each server, let's implement a counter. Open the `HomeController.cs` file and make the following changes to the `Index` method:
 ```csharp
@@ -95,10 +95,22 @@ And in the `Index.cshtml` file:
 ```
 Now every instance of the application shows the number of served requests. 
 
-Run the docker-compose again using `docker-compose up` and when it got ready, open the [http://localhost:3000](http://localhost:3000) and hit refresh multiple times. You should see the counter number increases almost evenly between all instances. You can open the app instances directly at [http://localhost:4500](http://localhost:4500), [http://localhost:4501](http://localhost:4501) and [http://localhost:4502](http://localhost:4502).
+Run the docker-compose again using `docker-compose up` and when it got ready, open the [http://localhost:3000](http://localhost:3000) and hit refresh multiple times. You should see the counter number increases almost evenly between all instances.
 
+Do you want to see what happens when one of the applications goes down? Try stopping one of them by running this:
+```sh
+# You can see list of running containers by running:
+# docker ps
+docker stop reverse-proxy-sample_app0_1
+```
+And keep refreshing the application. You won't notice a change. That's because the Nginx detects the failure and never route any request toward the broken instance. In a real-world scenario, where each application instance is hosted on a different machine when an unexpected failure happens (like hardware or network failure), imagine how helpful it is that the load balancer handles the situation.
+
+ By the way, you can still open the app instances directly at [http://localhost:4500](http://localhost:4500), [http://localhost:4501](http://localhost:4501) and [http://localhost:4502](http://localhost:4502).
+
+
+The diagram below shows the whole picture:
 ![Nginx Load Balancer](../images/nginx-reverse-proxy-server-load-balancer.jpg)
-*Nginx Load Balancer*
+*The Nginx Load Balancer*
 
 Nginx, by default, uses the RoundRobin algorithm. This model distributes requests evenly among available servers. There are other algorithms like Least Connection and IP Hash. To try them, read the [Nginx HTTP Load Balancing Docs](https://docs.nginx.com/nginx/admin-guide/load-balancer/http-load-balancer/#choosing-a-load-balancing-method){:target="_blank"}.
 
