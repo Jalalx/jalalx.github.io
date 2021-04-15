@@ -114,4 +114,4 @@ The diagram below shows the whole picture:
 
 Nginx, by default, uses the RoundRobin algorithm. This model distributes requests evenly among available servers. There are other algorithms like Least Connection and IP Hash. To try them, read the [Nginx HTTP Load Balancing Docs](https://docs.nginx.com/nginx/admin-guide/load-balancer/http-load-balancer/#choosing-a-load-balancing-method){:target="_blank"}.
 
-I hope you find this blog post useful. Have a happy coding day! 
+I hope you find this blog post useful. In the next blog post I will write about Web Accelerition. Have a happy coding day! 
