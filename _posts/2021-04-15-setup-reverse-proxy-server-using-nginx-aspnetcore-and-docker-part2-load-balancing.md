@@ -3,7 +3,7 @@ layout: post
 title: Setup a Reverse Proxy Server using Nginx, ASP.NET Core and Docker - Part II (Load Balancing)
 author: jalal
 categories: [ AspNet Core, Nginx, Reverse Proxy Server, Docker ]
-description: "You probably have heard about the reverse proxy servers. Let's try implementing some of reverse proxy web server features"
+description: "In the previous blog post we implemented a reverse proxy web server. Let's try implementing one of the reverse proxy web server features, a load balancer!"
 ---
 
 In the [previous blog post](/setup-reverse-proxy-server-using-nginx-aspnetcore-and-docker-part1/), we talked about Reverse Proxy Web Servers. But in this post, we will go through implementing load balancing for our Nginx web server.
@@ -114,4 +114,4 @@ The diagram below shows the whole picture:
 
 Nginx, by default, uses the RoundRobin algorithm. This model distributes requests evenly among available servers. There are other algorithms like Least Connection and IP Hash. To try them, read the [Nginx HTTP Load Balancing Docs](https://docs.nginx.com/nginx/admin-guide/load-balancer/http-load-balancer/#choosing-a-load-balancing-method){:target="_blank"}.
 
-I hope you find this blog post useful. In the next blog post I will write about Web Accelerition. Have a happy coding day! 
+I hope you find this blog post useful. In the next blog post I will write about Web Acceleration. Have a happy coding day! 
