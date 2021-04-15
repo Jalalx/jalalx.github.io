@@ -16,7 +16,7 @@ Well, to answer that, let's see what a proxy server is. A proxy server is a comp
 Reverse proxy servers provide the following features:
 * Load Balancing - Reverse Proxy Servers can control incoming requests and reroute them to a designated group of servers. Distributing load on multiple servers increases speed and capacity utilization. 
 
-* Web Acceleration - Reverse proxy servers can provide features like data compression, caching, SSL encryption, etc., and leaving downstream servers free to do what they are supposed to do.
+* Web Acceleration - Reverse proxy servers can provide features like data compression, caching, SSL encryption, etc., and leaving upstream servers free to do what they are supposed to do.
 
 * Security and Anonymity - By sitting in front of the internal network, reverse proxy servers can add another layer of protection against security attacks.
 
