@@ -52,7 +52,7 @@ Here instead of having one instance, we build three instances of the same applic
 
 *Warning: Creating multiple instances of the same app like this is not recommended for production use and is just for simplicity. Consider using solutions like Kubernetes in real-world scenarios for better performance, maintenance, and control over instances.*
 
-Now we need to configure the Nginx service to distribute incoming requests to them. Open the `default.conf` and change it to this:
+Now we need to configure the Nginx service to distribute incoming requests across them. Open the `default.conf` and change it to this:
 ```nginx
 upstream backend {
     server app0:3500;
@@ -95,7 +95,7 @@ And in the `Index.cshtml` file:
 ```
 Now every instance of the application shows the number of served requests. 
 
-Run the docker-compose again using `docker-compose up` and when it got ready, open the [http://localhost:3000](http://localhost:3000) and hit refresh multiple times. You should see the counter number increases almost evenly between all instances.
+Run the docker-compose again using `docker-compose up` and when it got ready, open the [http://localhost:3000](http://localhost:3000) and hit refresh multiple times. You should see the counter number increases almost evenly among all instances.
 
 Do you want to see what happens when one of the applications goes down? Try stopping one of them by running this:
 ```sh
