@@ -17,7 +17,7 @@ To generate keys and create a valid certificate, install OpenSSL. On windows, yo
 ```sh
 choco install openssl
 ``` 
-Or download binaries and add them to your system path.
+Or [download binaries](https://wiki.openssl.org/index.php/Binaries){:target="_blank"} and add them to your system path.
 
 Back to the `nginx` directory and create an `ssl` folder. 
 ```sh
@@ -27,7 +27,7 @@ Now let's generate the private key and certificate:
 ```sh
 openssl req -x509 -nodes -days 365 -addext "subjectAltName=DNS:localhost" -newkey rsa:2048 -keyout "./ssl/selfsigned.key" -out "./ssl/selfsigned.crt"
 ```
-It will ask you some questions about Country, State, City, Company, etc. Just remember to enter `localhost` when it asks about `Common Name (e.g. server FQDN or YOUR name)`. After entering them you will be ended up with two files: `selfsigned.cert` which is the certificate file and `selfsigned.key` that is the private key file.
+It will ask you some questions about Country, State, City, Company, etc. Just remember to enter `localhost` when it asks about `Common Name (e.g. server FQDN or YOUR name)`. After entering them you will be ended up with two files: `selfsigned.crt` which is the certificate file and `selfsigned.key` that is the private key file.
 
 Now we need to configure the Nginx to use our SSL certificate. In the `default.conf` make the following changes:
  ```nginx
@@ -55,17 +55,18 @@ server {
 }
  ```
 Ok, now Nginx will read the certificate and private key files from the specified locations in the container. We need to update Nginx `Dockerfile` to copy these files into the expected locations:
- ```Dockerfile
- FROM nginx:1.19.9
+```docker
+FROM nginx:1.19.9
 
 COPY ./config/default.conf /etc/nginx/conf.d/default.conf
 
 # Copy Cert and Key files into configured locations
 COPY ./ssl/selfsigned.crt /etc/ssl/certs/selfsigned.crt
 COPY ./ssl/selfsigned.key /etc/ssl/private/selfsigned.key
- ```
 
-If the docker-compose is still running, stop it using `docker-compose down --rmi=all`. This will delete all containes and images created in the previous step.
+# Open SSL port
+EXPOSE 443
+```
 
 And one last thing! HTTPS protocol runs on port 443. So we need to add it to the `docker-compose.yml` file. In the `nginx` service section, under `- "3000:80"` make this change:
 ```yml
@@ -85,12 +86,19 @@ Now if you navigate to [https://localhost:3001](https://localhost:3001) BAM! You
 
 Well, since the certificate is self-signed, the Host OS (in this case, Windows 10) doesn't trust it by default. We need to introduce it to the host system explicitly.
 
-To do this, run the following command in the Windows Powershell:
+To do this, run the following command in the Windows Powershell (in elevated mode):
 ```ps
-Import-Certificate -FilePath "C:\Projects\Github\reverse-proxy-sample\nginx\ssl\selfsigned.crt" -CertStoreLocation cert:\CurrentUser\Root
+Import-Certificate -FilePath "C:\path\to\reverse-proxy-sample\nginx\ssl\selfsigned.crt" -CertStoreLocation cert:\CurrentUser\Root
 ```
 Path to the `.crt` file in your system is different. Make sure you update it before running the command. Also, before installing the certificate, a warning dialog will be shown that you need to confirm it.
 
-After installing the self signed certificate successfully, open [https://localhost:3001](https://localhost:3001) again and you should see secured lock icon in the Google Chrome address bar. 
+After installing the self signed certificate successfully, restart the Chrome browser and open [https://localhost:3001](https://localhost:3001) again. You should see secured lock icon in the Google Chrome address bar. 
 
-*NOTE: If you're using Mozilla Firefox, you might still see the warning! To fix it, you need to manually import the certificate into Firefox Certificates from Options > Privacy & Security.*
+*NOTE: If you're using Mozilla Firefox, you might still see the warning! To fix it, you need to manually import the certificate into Firefox Certificates from Options > Privacy & Security page.*
+
+The HTTPS setup is completed but in the ASP.NET Core side, we're not finished yet. You need to configure the application so that redirect URIs and other security policies work correctly. This is out of this blog post context but you can read more about it on [Host ASP.NET Core on Linux with Nginx
+](https://docs.microsoft.com/en-us/aspnet/core/host-and-deploy/proxy-load-balancer?view=aspnetcore-5.0){:target="_blank"} and [Configure ASP.NET Core to work with proxy servers and load balancers](https://docs.microsoft.com/en-us/aspnet/core/host-and-deploy/proxy-load-balancer?view=aspnetcore-5.0){:target="_blank"}.
+
+In this blog post, we talked about how to offload one of the most used reverse proxy web server features, implementing a secure HTTP protocol. I hope you enjoyed it. In the next blog post, we will see how reverse proxy web servers can manipulate user requests and upstream server responses.
+
+Have a good day!
